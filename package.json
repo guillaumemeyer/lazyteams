@@ -1,0 +1,89 @@
+{
+  "name": "lazyteams",
+  "version": "0.0.1",
+  "description": "A simple Microsoft Teams chat client for the terminal",
+  "keywords": [
+    "microsoft",
+    "teams",
+    "microsoft-teams",
+    "cli",
+    "tui"
+  ],
+  "author": "Guillaume Meyer <guillaume.meyer@outlook.com> (https://x.com/guillaumemeyer/)",
+  "license": "UNLICENSED",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guillaumemeyer/lazyteams.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guillaumemeyer/lazyteams/issues"
+  },
+  "homepage": "https://github.com/guillaumemeyer/lazyteams#readme",
+  "type": "module",
+  "main": "dist/build/lazyteams-min.js",
+  "bin": {
+    "lazyteams": "dist/build/lazyteams-min.js"
+  },
+  "scripts": {
+    "prepare": "husky",
+    "lint": "eslint ./src/**/*.js",
+    "typecheck": "tsc --project .",
+    "lint:commit": "commitlint --edit \"$1\" --verbose",
+    "test": "NODE_ENV=development LOG_LEVEL=debug LOG_DIR=./tmp/logs bun test",
+    "cleanup": "rm -rf dist && rm -rf tmp",
+    "debug": "NODE_ENV=development LOG_LEVEL=debug LOG_DIR=./tmp/logs bun --inspect-wait=ws://localhost:6499/ixbq3i3ql3l --watch src/entrypoint.js",
+    "dev": "NODE_ENV=development LOG_LEVEL=debug LOG_DIR=./tmp/logs bun --watch src/entrypoint.js",
+    "start": "node dist/build/lazyteams-min.js",
+    "build": "bun build ./src/entrypoint.js --target bun --minify --outdir ./dist/build --entry-naming lazyteams-min.js && cp node_modules/yoga-wasm-web/dist/yoga.wasm ./dist/build",
+    "compile": "bun build ./src/entrypoint.js --compile --minify --outfile ./dist/bin/lazyteams && cp node_modules/yoga-wasm-web/dist/yoga.wasm ./dist/bin",
+    "publish": "npm publish --access public"
+  },
+  "dependencies": {
+    "@folder/xdg": "^4.0.1",
+    "@inkjs/ui": "^1.0.0",
+    "@microsoft/microsoft-graph-client": "^3.0.7",
+    "chalk": "^5.3.0",
+    "clipboardy": "^4.0.0",
+    "commander": "^12.0.0",
+    "figlet": "^1.7.0",
+    "ink": "^4.4.1",
+    "ink-asciify-image": "^1.1.0",
+    "ink-big-text": "^2.0.0",
+    "ink-gradient": "^3.0.0",
+    "ink-link": "^3.0.0",
+    "ink-spinner": "^5.0.0",
+    "jwt-decode": "^4.0.0",
+    "open": "^10.1.0",
+    "react": "^18.2.0",
+    "winston": "^3.11.0",
+    "winston-daily-rotate-file": "^5.0.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.3",
+    "@commitlint/config-conventional": "^18.4.3",
+    "@microsoft/microsoft-graph-types": "^2.40.0",
+    "@types/bun": "^1.0.8",
+    "@types/figlet": "^1.5.8",
+    "@types/node": "^20.10.0",
+    "@types/react": "^18.2.64",
+    "eslint": "^8.54.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsdoc": "^46.9.0",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^6.0.1",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-security": "^1.4.0",
+    "husky": "^8.0.0",
+    "jsdoc": "^4.0.2",
+    "jsdoc-tsimport-plugin": "^1.0.5",
+    "react-devtools-core": "^4.28.5",
+    "standard": "^17.1.0",
+    "typescript": "^5.3.2"
+  },
+  "files": [
+    "dist/build/lazyteams-min.js"
+  ]
+}

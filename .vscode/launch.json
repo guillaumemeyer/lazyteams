@@ -1,0 +1,32 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "tui",
+      "program": "${workspaceFolder}/src/entrypoint.js",
+      "args": [],
+      "env": {
+        // "NODE_ENV": "development",
+        // "LOG_LEVEL": "debug",
+        // "LOG_DIR": "./tmp/logs"
+      },
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "bun",
+      "request": "attach",
+      "name": "attach",
+      "url": "ws://localhost:6499/ixbq3i3ql3l",
+      "internalConsoleOptions": "openOnSessionStart"
+    },
+    {
+      "type": "bun",
+      "request": "launch",
+      "name": "test",
+      "program": "test/suite.test.js",
+      "internalConsoleOptions": "openOnSessionStart",
+    },
+  ]
+}

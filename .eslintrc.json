@@ -1,0 +1,36 @@
+{
+  "plugins": [
+    "security",
+    "jsdoc",
+    "react",
+    "react-hooks"
+  ],
+  "extends": [
+    "standard",
+    "plugin:security/recommended",
+    "plugin:jsdoc/recommended-typescript-flavor",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:import/recommended"
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    "tmp/",
+    "src/constants/constants.js"
+  ],
+  "rules": {
+    "react/prop-types": "warn",
+    "react/react-in-jsx-scope": "warn",
+    "react/display-name": "warn",
+    "react/jsx-uses-react": "warn",
+    "react/jsx-uses-vars": "warn",
+    "react-hooks/rules-of-hooks": "warn",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}
